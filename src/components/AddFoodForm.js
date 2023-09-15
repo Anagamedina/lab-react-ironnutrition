@@ -16,14 +16,15 @@ function AddFoodForm({ onAddFood }) {
     };
   
     const handleSubmit = (event) => {
-      event.preventDefault();
+      console.log(newFood);
+      // event.preventDefault();
       onAddFood(newFood);
       setNewFood({ name: "", calories: 0, image: "", servings: 0 });
     };
   
     return (
       <Card >
-      <Form onSubmit={handleSubmit} layout="vertical">
+      <Form onFinish={handleSubmit} layout="vertical">
         <Form.Item name="name" label="Username"  >
           <Input  
             type="text"
@@ -57,10 +58,16 @@ function AddFoodForm({ onAddFood }) {
           value={newFood.servings}
           onChange={handleInputChange}
         />
-        <Button type="submit">Add Food</Button>
+        <Button type="primary" htmlType="submit" >Add Food</Button>
       </Form>
       </Card>
     );
   }
   
 export default AddFoodForm;
+
+
+
+//<Form.Item> es una etiqueta o componente utilizado en algunas bibliotecas de UI en React, como Ant Design,
+//[name]: value })agrega una nueva propiedad con el nombre name y el valor value. Esto actualiza solo el campo de entrada específico que cambió.
+//placeholder un texto de sugerencia
